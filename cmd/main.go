@@ -48,7 +48,7 @@ func main() {
 	}
 
 	// read resource declaration file
-	resourceDeclarationFileAbsolutePath, _ := filepath.Abs(fmt.Sprintf("policies/%v/resource.json", resourceType))
+	resourceDeclarationFileAbsolutePath, _ := filepath.Abs(fmt.Sprintf("policies/%v/positive.json", resourceType))
 	resourceFileContent, err := os.ReadFile(resourceDeclarationFileAbsolutePath)
 	if err != nil {
 		panic(err)
@@ -78,7 +78,6 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println("Risk found in resource type: ", resourceFileInput["type"])
 	fmt.Println("Risk Paths: ", resultSet[0].Bindings["risk_path"])
 	fmt.Println("Risk Lines: <TODO>")
 }
